@@ -43,8 +43,8 @@ router.delete("/:id", isAdmin, async (request, response) => {
 });
 
 //get order by user
-router.get("/find/:userId", verifyToken, async (request, response) => {
-  const orderByUser = await Order.find({ userId: request.params.userId });
+router.get("/find/:id", authorization, async (request, response) => {
+  const orderByUser = await Order.find({ userId: request.params.id });
   response.send(orderByUser);
 });
 
