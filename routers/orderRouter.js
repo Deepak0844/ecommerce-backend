@@ -44,7 +44,9 @@ router.delete("/:id", isAdmin, async (request, response) => {
 
 //get order by user
 router.get("/find/:id", authorization, async (request, response) => {
-  const orderByUser = await Order.find({ userId: request.params.id });
+  const orderByUser = await Order.find({ userId: request.params.id }).sort({
+    createdAt: -1,
+  });
   response.send(orderByUser);
 });
 
