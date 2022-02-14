@@ -76,6 +76,7 @@ router.get("/income", isAdmin, async (request, response) => {
         total: { $sum: "$sales" },
       },
     },
+    { $sort: { _id: 1 } },
   ]);
   response.send(income);
 });
