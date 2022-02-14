@@ -52,7 +52,7 @@ router.get("/find/:id", authorization, async (request, response) => {
 
 //get all cart(only admin)
 router.get("/", isAdmin, async (request, response) => {
-  const allOrder = await Order.find();
+  const allOrder = await Order.find().sort({ createdAt: -1 });
   response.send(allOrder);
 });
 
