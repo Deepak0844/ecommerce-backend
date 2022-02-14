@@ -49,7 +49,7 @@ router.get("/", isAdmin, async (request, response) => {
   try {
     const allUser = query
       ? await User.find().sort({ _id: -1 }).limit(5)
-      : await User.find().sort({ createdAt: -1 });
+      : await User.find();
     response.send(allUser);
   } catch (err) {
     response.send(err);
