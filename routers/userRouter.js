@@ -49,7 +49,7 @@ router.get("/", isAdmin, async (request, response) => {
   try {
     const allUser = query
       ? await User.find().sort({ _id: -1 }).limit(5)
-      : await User.find();
+      : await User.find().sort({ createdAt: -1 });
     response.send(allUser);
   } catch (err) {
     response.send(err);
@@ -89,6 +89,7 @@ router.get("/stats", isAdmin, async (request, response) => {
           total: { $sum: 1 },
         },
       },
+      { $sort: { _id: 1 } },
     ]);
     response.send(stats);
   } catch (err) {
