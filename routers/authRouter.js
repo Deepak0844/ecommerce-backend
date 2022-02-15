@@ -65,8 +65,8 @@ router.route("/signup").post(async (request, response) => {
     },
     { new: true }
   );
-  // token });
-  const link = `http://localhost:3000/account-verification/${token}`;
+
+  const link = `https://ecommerce-d5ff7.web.app/account-verification/${token}`;
   console.log("token: ", token);
   const message = `
       <h2>Just one more step...</h2>
@@ -191,8 +191,8 @@ router.route("/forgot-password").post(async (request, response) => {
   );
   console.log("token:", token);
   // Email
-  // const link = `https://blog-app-a46d7.web.app/reset-password/${token}`;
-  const link = `http://localhost:3000/reset-password/${token}`;
+
+  const link = `https://ecommerce-d5ff7.web.app/reset-password/${token}`;
   const message = `<h3>Hi ${emailFromDB.userName},</h3>
   <p>Forgot your password?</p>
   <p>To reset your password, click on the link below</p>
