@@ -75,7 +75,7 @@ router.route("/signup").post(async (request, response) => {
       <a href=${link}>complete verification</a>
     `;
   const responseMessage = {
-    message: "Activation link has been send to your Email",
+    message: "Activation link has been sent to your Email",
   };
   const subject = "Account Activation";
   const mail = Email(email, response, message, responseMessage, subject);
